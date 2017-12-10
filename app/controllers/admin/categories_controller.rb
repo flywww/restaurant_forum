@@ -8,7 +8,7 @@ class Admin::CategoriesController < ApplicationController
     if params[:id]
       @category = Category.find(params[:id])
     else
-      @category = Cateory.new
+      @category = Category.new
     end
   end
 
@@ -33,6 +33,13 @@ class Admin::CategoriesController < ApplicationController
       render :index
     end
   end
+
+def destroy
+  @category = Category.find(params[:id])
+  @category.destroy
+  flash[:alert] = "category was succeessfully deleted"
+  redirect_to admin_categories_path
+end
 
   private
 
