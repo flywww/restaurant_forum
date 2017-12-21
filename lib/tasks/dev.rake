@@ -23,7 +23,7 @@ namespace :dev do
     Restaurant.all.each do |restaurant|
       3.times do |i|
         @comment = restaurant.comments.build(content: FFaker::Tweet.body)
-        @comment.user = User.find(rand(1..User.count))
+        @comment.user =  User.all.order("random()").first
         @comment.save!
       end
     end
