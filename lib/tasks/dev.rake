@@ -15,10 +15,10 @@ namespace :dev do
     puts "Have created fake restaurant"
     puts "now you have #{Restaurant.count} restaurants data"
 
-#    20.times do |i|
-#      User.create(email: FFaker::Internet.email, password: "12345678", role: "")
-#    end
-#    puts "creat user done (#{User.count} users)"
+    20.times do |i|
+      User.create(email: FFaker::Internet.email, password: "12345678", role: "")
+    end
+    puts "creat user done (#{User.count} users)"
 
 #    Restaurant.all.each do |restaurant|
 #      3.times do |i|
