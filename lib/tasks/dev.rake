@@ -2,7 +2,7 @@ namespace :dev do
   task fake: :environment do
     Restaurant.destroy_all
     Comment.destroy_all
-    User.destroy_all
+    User.where.not(email: "admin@gmail.com").destroy_all
 
     500.times do |i|
       Restaurant.create!(name: FFaker::Name.first_name,
