@@ -20,14 +20,14 @@ namespace :dev do
     end
     puts "creat user done (#{User.count} users)"
 
-#    Restaurant.all.each do |restaurant|
-#      3.times do |i|
-#        @comment = restaurant.comments.build(content: FFaker::Tweet.body)
-#        @comment.user =  User.all.order("random()").first
-#        @comment.save!
-#      end
-#    end
-#    puts "creat comments done"
+    Restaurant.all.each do |restaurant|
+      3.times do |i|
+        @comment = restaurant.comments.build(content: FFaker::Tweet.body)
+        @comment.user =  User.all.order("random()").first
+        @comment.save!
+      end
+    end
+    puts "creat comments done"
 
   end
 end
