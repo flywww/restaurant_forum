@@ -1,0 +1,17 @@
+
+<h1>Edit Profile</h1>
+<%= form_for @user do |f| %>
+
+<%= f.label :name, "Name" %>
+<%= f.text_field :name%>
+
+<%= f.label :intro, "Intro" %>
+<%= f.text_area :intro%>
+
+<%= f.label :avatar, "Avatar" %>
+<%= image_tag @user.avatar, width: '300px' if @user.avatar? %>
+<%= f.file_field :avatar %>
+
+<%= f.submit %>
+<%= link_to "Cancel", user_path %>
+<% end %>
