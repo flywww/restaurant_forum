@@ -1,17 +1,29 @@
+<div class="container">
+  <div class="row">
+    <h1>Edit Profile</h1>
+    <%= form_for @user do |f| %>
 
-<h1>Edit Profile</h1>
-<%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name, class: "form-control"%>
+    </div>
 
-<%= f.label :name, "Name" %>
-<%= f.text_field :name%>
+    <div class="form-group">
+      <%= f.label :intro, "Intro" %>
+      <%= f.text_area :intro, class: "form-control"%>
+    </div>
 
-<%= f.label :intro, "Intro" %>
-<%= f.text_area :intro%>
+    <div class="form-group">
+      <%= f.label :intro, "Avatar" %>
+      <%= image_tag @user.avatar, width: '50px' if @user.avatar? %><br>
+      <%= f.file_field :avatar %>
+    </div>
 
-<%= f.label :avatar, "Avatar" %>
-<%= image_tag @user.avatar, width: '300px' if @user.avatar? %>
-<%= f.file_field :avatar %>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary" %>
+      <%= link_to "Cancel", user_path ,class: "btn btn-primary" %>
+    </div>
 
-<%= f.submit %>
-<%= link_to "Cancel", user_path %>
-<% end %>
+  <% end %>
+</div>
+</div>
