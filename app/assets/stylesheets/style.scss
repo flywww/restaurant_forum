@@ -26,3 +26,24 @@
 .circular-image {
   border-radius:  50%;
 }
+
+.my-restaurant {
+  display: inline-block;
+  text-align: center;
+  padding: 7px 7px 0 7px;
+}
+
+.my-restaurant img {
+   max-height: 100%;
+}
+
+.my-restaurant-item{
+  text-align: center;
+  float :center
+}
+
+.my-restaurant-item-imag{
+  border-radius:  10%;
+  padding: 0px 0px;
+  height: 40px;
+}

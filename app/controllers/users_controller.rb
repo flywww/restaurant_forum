@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @commented_restaurants = removeReapeatObjects(@user.restaurants)
   end
 
   def edit
@@ -24,4 +25,14 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :intro, :avatar)
   end
 
+  def removeReapeatObjects(objects)
+    @sortingObjects = objects.sort_by {|obj| obj.id}
+    @nonReapeatObjects =  []
+    for i in 0...(@sortingObjects.length-1)
+        if @sortingObjects[i].id != @sortingObjects[i+1].id
+          @nonReapeatObjects.push(@sortingObjects[i])
+        end    
+    end
+    @nonReapeatObjects
+  end
 end
