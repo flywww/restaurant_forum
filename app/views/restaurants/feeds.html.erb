@@ -1,7 +1,13 @@
 <div class="container">
   <ul class="nav nav-tabs">
-    <li role="presentation"><a href="<%=restaurants_path %>"> 首頁 </a></li>
-    <li role="presentation" class="active"><a href="<%=feeds_restaurants_path %>">最新動態</a></li>
+    <li role="presentation">
+      <a href="<%=restaurants_path %>">
+        首頁
+      </a>
+    </li>
+    <li role="presentation" class="active">
+      <a href="<%=feeds_restaurants_path %>">最新動態</a>
+    </li>
   </ul>
   <h1>餐廳最新動態</h1>
   <div class="row">
@@ -12,11 +18,11 @@
         </div>
         <div class="panel-body">
           <% @recent_restaurants.each do |recent_restaurant| %>
-                <h3>
-                  <%= link_to recent_restaurant.name, restaurant_path(recent_restaurant) %>
-                  <font size = "2" color = "gray"><%= recent_restaurant.category.name %></font>
-                </h3>
-              <p><%= truncate(recent_restaurant.description, length: 80) %></p>
+            <h3>
+              <%= link_to recent_restaurant.name, restaurant_path(recent_restaurant) %>
+              <font size="2" color="gray"><%= recent_restaurant.category.name %></font>
+            </h3>
+            <p><%= truncate(recent_restaurant.description, length: 80) %></p>
           <% end %>
         </div>
       </div>
@@ -28,8 +34,10 @@
         </div>
         <div class="panel-body">
           <% @recent_comments.each do |recent_comment| %>
-                <h3><%= link_to recent_comment.restaurant.name, restaurant_path(recent_comment.restaurant) %></h3>
-                <p><%= recent_comment.content %> by <%= link_to recent_comment.user.name, user_path(recent_comment.user) %></p>
+            <h3><%= link_to recent_comment.restaurant.name, restaurant_path(recent_comment.restaurant) %></h3>
+            <p><%= recent_comment.content %>
+              by
+              <%= link_to recent_comment.user.name, user_path(recent_comment.user) %></p>
             <hr>
           <% end %>
         </div>
